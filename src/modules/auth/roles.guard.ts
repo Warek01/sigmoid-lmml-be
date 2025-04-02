@@ -22,7 +22,13 @@ export class RolesGuard implements CanActivate {
       return true
     }
 
-    const { role }: DecodedJwt = context.switchToHttp().getRequest().user
+    const user = context.switchToHttp().getRequest().user
+
+    if (!user) {
+      return false
+    }
+
+    const { role }: DecodedJwt = user
     const roleIndex = RoleHierarchy.indexOf(role)
     const requiredRoleIndex = RoleHierarchy.indexOf(requiredRole)
     return roleIndex >= requiredRoleIndex

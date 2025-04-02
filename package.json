@@ -41,7 +41,7 @@
     "@swc/core": "^1.11.16",
     "@types/cookie-parser": "^1.4.8",
     "@types/express": "^5.0.1",
-    "@types/node": "^22.13.17",
+    "@types/node": "^22.14.0",
     "globals": "^16.0.0",
     "husky": "^9.1.7",
     "prettier": "^3.5.3",

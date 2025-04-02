@@ -6,6 +6,7 @@ import {
   HealthCheckResult,
   HealthCheckService,
   MemoryHealthIndicator,
+  TypeOrmHealthIndicator,
 } from '@nestjs/terminus'
 
 import { Public } from '@/modules/auth/auth.decorator'
@@ -21,6 +22,7 @@ export class HealthController {
     private readonly health: HealthCheckService,
     private readonly disk: DiskHealthIndicator,
     private readonly memory: MemoryHealthIndicator,
+    private readonly db: TypeOrmHealthIndicator,
   ) {}
 
   @Get()
@@ -33,6 +35,7 @@ export class HealthController {
           thresholdPercent: 0.85,
         }),
       () => this.memory.checkHeap('mem-heap', this.HEAP_THRESHOLD),
+      () => this.db.pingCheck('db'),
     ])
   }
 }

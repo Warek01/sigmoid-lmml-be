@@ -1,0 +1,42 @@
+name: sigmoid-lmml
+
+services:
+  db:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    ports: [ "5432:5432" ]
+    networks: [ lmml-network ]
+    volumes:
+      - db-data:/var/lib/postgresql/data/
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile.development
+    depends_on:
+      - db
+    init: true
+    networks: [ lmml-network ]
+    env_file: [ .env.development ]
+    ports: [ "3000:3000" ]
+    volumes:
+      - ./:/app/
+    healthcheck:
+      test: [
+        "CMD", "curl", "-X", "GET", "http://localhost:3000/api/v1/health", "-H", "accept: application/json"
+      ]
+      interval: 60s
+      timeout: 1s
+      retries: 2
+      start_period: 30s
+
+
+networks:
+  lmml-network:
+    driver: bridge
+
+volumes:
+  db-data: { }

@@ -11,6 +11,7 @@ import { AuthModule } from '@/modules/auth/auth.module'
 import { RolesGuard } from '@/modules/auth/roles.guard'
 import { LoggingInterceptor } from '@/interceptors/logging.interceptor'
 import { DB_CONFIG } from '@/config/db.config'
+import { TaskModule } from './modules/task/task.module'
 
 @Module({
   imports: [
@@ -18,6 +19,7 @@ import { DB_CONFIG } from '@/config/db.config'
     TypeOrmModule.forRootAsync(DB_CONFIG),
     HealthModule,
     AuthModule,
+    TaskModule,
   ],
   controllers: [],
   providers: [

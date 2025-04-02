@@ -12,7 +12,7 @@
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/main",
-    "typecheck": "tsc -p tsconfig.types.json && echo Success",
+    "typecheck": "tsc -p tsconfig.json && echo Success",
     "husky-prepare": "husky"
   },
   "dependencies": {

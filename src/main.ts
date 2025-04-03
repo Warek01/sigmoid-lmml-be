@@ -32,7 +32,8 @@ async function bootstrap() {
 
   const swaggerConfig = new DocumentBuilder()
     .setTitle('Sigmoid LMML')
-    .setVersion('1.0.0')
+    .setVersion('0.0.1')
+    .addBearerAuth()
     .build()
 
   const swaggerDocument = SwaggerModule.createDocument(app, swaggerConfig)

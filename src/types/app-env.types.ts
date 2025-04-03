@@ -11,4 +11,8 @@ export interface AppEnv {
   DB_PASSWORD: string
 
   CORS_ORIGIN: string
+
+  JWT_SECRET: string
+  JWT_TTL: string
+  JWT_AUD: string
 }

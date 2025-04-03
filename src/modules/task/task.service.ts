@@ -18,7 +18,6 @@ export class TaskService {
       relations: {},
       skip: query.offset,
       take: query.limit,
-      cache: true,
     })
   }
 

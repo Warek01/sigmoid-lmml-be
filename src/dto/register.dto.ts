@@ -2,7 +2,7 @@ import { Exclude, Expose } from 'class-transformer'
 import { ApiProperty } from '@nestjs/swagger'
 
 @Exclude()
-export class LoginDto {
+export class RegisterDto {
   @Expose()
   @ApiProperty({ type: String })
   email: string

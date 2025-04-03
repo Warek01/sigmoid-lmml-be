@@ -21,8 +21,7 @@ import { GetTasksDto } from '@/dto/get-tasks.dto'
 import { PaginatedRequestDto } from '@/dto/paginated-request.dto'
 import { CreateTaskDto } from '@/dto/create-task.dto'
 import { TaskDto } from '@/dto/task.dto'
-import { Public } from '@/modules/auth/auth.decorator'
-import { Role } from '@/modules/auth/roles.decorator'
+import { Public, Role } from '@/modules/auth/auth.decorator'
 import { UserRole } from '@/modules/user/user-role.enum'
 
 @Controller('task')
